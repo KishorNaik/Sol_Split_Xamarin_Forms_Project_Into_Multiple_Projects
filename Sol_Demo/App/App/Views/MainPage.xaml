@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:App.ViewModels"
+             x:Class="App.Views.MainPage"
+              NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <vm:MainViewModel></vm:MainViewModel>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Button Text="Navigate Animal View" Command="{Binding NavigateAnimalViewPage}"></Button>
+    </StackLayout>
+</ContentPage>

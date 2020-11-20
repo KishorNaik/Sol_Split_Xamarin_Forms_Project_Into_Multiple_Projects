@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Android", "App\App.Android\App.Android.csproj", "{114CDF11-8074-44C4-AEA1-CC5E51AA7FB9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App", "App\App\App.csproj", "{3CE3EA40-44D7-40A2-A4A0-F9B0750DD21A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CircleImageDemo", "CircleImageDemo\CircleImageDemo.csproj", "{77FBA530-1464-44D2-A0FF-CF8EB5955F4E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NavigationServices", "NavigationServices\NavigationServices.csproj", "{0C1F0905-8E34-4936-BA0F-CB41BF753093}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{74FF4E0A-6593-4073-9E53-0AEF6BAF7D61}"
+	ProjectSection(SolutionItems) = preProject
+		Step.txt = Step.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardViewDemo", "CardViewDemo\CardViewDemo.csproj", "{E6DB70A3-D71C-4047-AD4A-5231337375FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{114CDF11-8074-44C4-AEA1-CC5E51AA7FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{114CDF11-8074-44C4-AEA1-CC5E51AA7FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{114CDF11-8074-44C4-AEA1-CC5E51AA7FB9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{114CDF11-8074-44C4-AEA1-CC5E51AA7FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{114CDF11-8074-44C4-AEA1-CC5E51AA7FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{114CDF11-8074-44C4-AEA1-CC5E51AA7FB9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3CE3EA40-44D7-40A2-A4A0-F9B0750DD21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE3EA40-44D7-40A2-A4A0-F9B0750DD21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE3EA40-44D7-40A2-A4A0-F9B0750DD21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE3EA40-44D7-40A2-A4A0-F9B0750DD21A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77FBA530-1464-44D2-A0FF-CF8EB5955F4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77FBA530-1464-44D2-A0FF-CF8EB5955F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77FBA530-1464-44D2-A0FF-CF8EB5955F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77FBA530-1464-44D2-A0FF-CF8EB5955F4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C1F0905-8E34-4936-BA0F-CB41BF753093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C1F0905-8E34-4936-BA0F-CB41BF753093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C1F0905-8E34-4936-BA0F-CB41BF753093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C1F0905-8E34-4936-BA0F-CB41BF753093}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6DB70A3-D71C-4047-AD4A-5231337375FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6DB70A3-D71C-4047-AD4A-5231337375FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6DB70A3-D71C-4047-AD4A-5231337375FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6DB70A3-D71C-4047-AD4A-5231337375FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3CE3EA40-44D7-40A2-A4A0-F9B0750DD21A} = {74FF4E0A-6593-4073-9E53-0AEF6BAF7D61}
+		{77FBA530-1464-44D2-A0FF-CF8EB5955F4E} = {74FF4E0A-6593-4073-9E53-0AEF6BAF7D61}
+		{E6DB70A3-D71C-4047-AD4A-5231337375FB} = {74FF4E0A-6593-4073-9E53-0AEF6BAF7D61}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9145368-A7B3-4DA2-9B33-4382E0ABBAE2}
+	EndGlobalSection
+EndGlobal

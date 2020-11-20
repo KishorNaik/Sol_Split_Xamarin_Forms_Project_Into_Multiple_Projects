@@ -1,0 +1,123 @@
+Step 1:
+Create a .Net Class Library. 
+    Solution
+    [CardViewDemo]
+    [CircleImageDemo]
+
+    1.1 Add the following Nuget Package.
+    Xamarin.Forms
+    Xamarin.Essentials
+    Refractored.MvvmHelpers
+
+Step 2:
+Add reference of above solutions into main xamarin.Form solution i.e [App]
+
+Step 3:
+Create a .Net Class Library for Navigation Service. it core functionality for navigation from one assembley to another assembly. [Check Navigation Service Library]
+Note: To Avoid Circular Dependency issue.
+
+Step 4:
+    4.1: Add Navigation Service library reference to Main Xamarin.Form Solution [Check App Solution]
+    4.2: Implement Navigation Service on Main Xamarin.Forms Solution. [Check App Solution]
+
+    Navigation Push Service Code.
+
+    public class NavigationPushService : INavigationPushService
+    {
+        async Task INavigationPushService.NavigateToAnimalView()
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new AnimalViewPage());
+        }
+
+        async Task INavigationPushService.NavigateToCardView()
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new CardViewPage());
+        }
+
+        async Task INavigationPushService.NavigateToMainPageView()
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new MainPage());
+        }
+    }
+
+
+    Navigation Remove Service Code
+
+    public class NavigationRemoveService : INavigationRemoveService
+    {
+        private Task RemovePages(Type type)
+        {
+            return Task.Run(() =>
+            {
+                var existingPages = App.Current.MainPage.Navigation.NavigationStack.ToList();
+
+                foreach (var page in existingPages)
+                {
+                    if (page.GetType() == type)
+                        continue;
+                    App.Current.MainPage.Navigation.RemovePage(page);
+                }
+            });
+        }
+
+        async Task INavigationRemoveService.RemoveOthersPagesExceptAnimalViewPageNavigationStack()
+        {
+            await this.RemovePages(typeof(AnimalViewPage));
+        }
+
+        async Task INavigationRemoveService.RemoveOthersPagesExceptCardViewPageNavigationSatck()
+        {
+            await this.RemovePages(typeof(CardViewPage));
+        }
+
+        async Task INavigationRemoveService.RemoveOthersPagesExceptMainPageNavigationStack()
+        {
+            await this.RemovePages(typeof(MainPage));
+        }
+    }
+     
+
+Step 5:
+Go to App.xaml.cs file and register dependency service.
+
+In App Constructor, add the following code.
+
+        public App()
+        {
+            InitializeComponent();
+            DependencyService.Register<NavigationPushService>();
+            DependencyService.Register<NavigationRemoveService>();
+
+            MainPage = new NavigationPage(new MainPage());
+        }
+
+Step 6:
+    6.1 : Add Navigation Service library reference to CardViewDemo and CircleImageDemo [Check Both Solution]
+    6.2 : Inject Navigation service like this.
+
+    public CardViewModel : BaseViewModel
+    {
+
+         private readonly INavigationPushService navigationPushService = null;
+         private readonly INavigationRemoveService navigationRemoveService = null;
+
+         public CardViewModel()
+         {
+            navigationPushService = DependencyService.Get<INavigationPushService>();
+            navigationRemoveService = DependencyService.Get<INavigationRemoveService>();
+
+            NavigateMainPage = new Command(async () => await this.NavigateMainPageAsync());
+         }
+
+         public ICommand NavigateMainPage { get; set; }
+
+        private async Task NavigateMainPageAsync()
+        {
+            await navigationPushService.NavigateToMainPageView();
+            await navigationRemoveService.RemoveOthersPagesExceptMainPageNavigationStack();
+        }
+    }
+
+
+Thats it.
+Now its look Razor Class Library.
